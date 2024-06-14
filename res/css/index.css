@@ -1,0 +1,56 @@
+main {
+  border-radius: var(--container-border_radius);
+  padding: 3rem 4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 2ch 0;
+  box-shadow: var(--header-shadow);
+  background-color: var(--main-color);
+}
+section {
+  display: flex;
+  align-items: center;
+  gap: 0 2ch;
+}
+img {
+  height: calc(var(--h1-size) * 2 + 1rem);
+  width: auto;
+}
+h1 {
+  display: inline;
+  color: var(--accent-color);
+  font-size: var(--h1-size);
+}
+#login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem 0;
+}
+input {
+  border: 1px solid var(--primary-color);
+  border-radius: var(--input-border_radius);
+  padding: var(--input-padding);
+  width: 24ch;
+  font-size: 1rem;
+}
+button {
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: var(--accent-color);
+}
+button:focus,
+button:hover {
+  background-color: var(--tertiary-color);
+  transition: var(--transition-time);
+}

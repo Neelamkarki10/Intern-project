@@ -1,0 +1,94 @@
+:root {
+  accent-color: #00aff0; /*you will not use this; it is used by browser!*/
+  --accent-color: #2b6eb5;
+  --main-color: white;
+  --primary-color: black;
+  --secondary-color: #00aff0;
+  --tertiary-color: #f36710;
+  --auxillary-color: #ee161f;
+  --out_of_focus-color: rgba(100, 100, 100, 0.4);
+  --container-border_radius: 1.6rem;
+  --input-border_radius: 0.4rem;
+  --input-padding: 0.8rem;
+  --transition-time: 0.3s;
+  --h1-size: 2rem;
+  --h2-size: 1.6rem;
+  --h3-size: 1.2rem;
+  --header-shadow: rgba(0, 0, 0, 0.24) 0px 4px 8px;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif, system;
+}
+
+header {
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--header-shadow);
+  background-color: var(--main-color);
+}
+
+#branding {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+}
+#branding:focus > h2,
+#branding:hover > h2 {
+  color: var(--auxillary-color);
+  transition: var(--transition-time);
+}
+#branding > img {
+  margin-right: 2ch;
+  height: calc(var(--h2-size) * 2 + 1rem);
+  width: auto;
+}
+#branding > h2 {
+  display: inline;
+  color: var(--accent-color);
+}
+
+button {
+  border: 0;
+  border-radius: 0.2rem;
+  padding: 0.4rem;
+  cursor: pointer;
+  width: max-content;
+  color: var(--main-color);
+}
+
+h1 {
+  font-size: var(--h1-size);
+}
+h2 {
+  font-size: var(--h2-size);
+}
+h3 {
+  font-size: var(--h3-size);
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent-color);
+}
+a:focus,
+a:hover {
+  color: var(--auxillary-color);
+}
+*:focus {
+  outline: 1px dashed var(--tertiary-color);
+}
+
+#logout {
+  font-size: large;
+  font-weight: bold;
+  color: var(--accent-color);
+  background-color: transparent;
+}
+#logout:focus,
+#logout:hover {
+  color: var(--auxillary-color);
+}
