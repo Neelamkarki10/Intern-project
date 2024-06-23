@@ -1,3 +1,8 @@
+<?php
+require_once '../../../src/globalHeader.php';
+authorize('teacher');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
