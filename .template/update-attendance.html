@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Attendance | Mechi Multiple Campus</title>
+    <link rel="stylesheet" href="../res/css/theme.css" />
+    <link rel="stylesheet" href="../res/css/attendance.css" />
+    <link rel="icon" type="image/x-icon" href="../res/img/favicon.png" />
+    <script src="../res/js/update-attendance.js"></script>
+  </head>
+  <body>
+    <header>
+      <span id="branding">
+        <img src="../../../res/img/TU-Logo.svg.png" alt="TU Logo" />
+        <h2>Mechi Multiple Campus</h2>
+      </span>
+      <button id="logout">Log out</button>
+    </header>
+
+    <main>
+      <section>
+        <div class="selector">
+          <label for="program">Program</label>
+          <select name="program" id="program">
+            <option value="">Select program</option>
+            <option value="bsc.csit">CSIT</option>
+            <option value="bca">BCA</option>
+          </select>
+        </div>
+
+        <div class="selector">
+          <label for="semester">Semester</label>
+          <select name="semester" id="semester">
+            <option value="">Select semester</option>
+            <option value="1">First</option>
+            <option value="2">Second</option>
+          </select>
+        </div>
+
+        <div class="selector">
+          <label for="section">Section</label>
+          <select name="section" id="section">
+            <option value="">Select section</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+          </select>
+        </div>
+
+        <div class="selector">
+          <label for="subject">Subject</label>
+          <select name="subject" id="subject">
+            <option value="">Select subject</option>
+            <option value="csc115">C Programming</option>
+          </select>
+        </div>
+
+        <div class="selector">
+            <label for="date">Date</label>
+            <input type="date" id="date" min="" max="" value="" />
+          </div>
+  
+
+        <div class="selector">
+          <button type="button" onclick="loadStudents()" id="loader">
+            &emsp;Load&emsp;
+          </button>
+        </div>
+      </section>
+
+      <form action="" method="POST" id="form" style="display: none">
+        <table id="table">
+          <thead>
+            <tr>
+              <th>Roll No.</th>
+              <th>Name</th>
+              <th>Attendance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Neelam Karki</td>
+              <td>
+                <input
+                  type="radio"
+                  name="present"
+                  value="present"
+                  checked
+                />present
+                <input type="radio" name="absent" value="absent" />absent
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Bipul Karki</td>
+              <td>
+                <input type="radio" name="present" value="present" />present
+                <input
+                  type="radio"
+                  name="absent"
+                  value="absent"
+                  checked
+                />absent
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+        <button type="submit" id="submit">&emsp;update Attendance&emsp;</button>
+      </form>
+    </main>
+  </body>
+</html>
