@@ -1,6 +1,9 @@
 <?php
 require_once '../../../src/globalHeader.php';
 authorize('teacher');
+
+require_once '../../../src/selectDataGenerator.php';
+$selectOptions = getClasses();
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +16,11 @@ authorize('teacher');
     <link rel="stylesheet" href="../../../res/css/attendance.css" />
     <link rel="stylesheet" href="../../../res/css/select.css" />
     <link rel="icon" type="image/x-icon" href="../../../res/img/favicon.png" />
+    <script src="../../../res/js/select.js"></script>
     <script src="../../../res/js/new-attendance.js"></script>
+    <script>
+      const classes = <?php echo json_encode($selectOptions)?>;
+    </script>
   </head>
   <body>
     <header>
@@ -37,34 +44,42 @@ authorize('teacher');
       <section>
         <div class="selector">
           <label for="program">Program</label>
-          <select name="program" id="program">
+          <select name="program" id="program" onchange="filterSemestersAccordingToProgram()">
             <option value="">Select program</option>
-            <option value="bsc.csit">CSIT</option>
-            <option value="bca">BCA</option>
+            <?php
+              $programs = array_unique(array_column($selectOptions, 'program'));
+              foreach ($programs as $program) {
+                  echo '<option value="'.$program.'">'.strtoupper($program).'</option>';
+              }
+            ?>
+            <!-- <option value="bsc.csit">CSIT</option>
+            <option value="bca">BCA</option> -->
           </select>
         </div>
 
         <div class="selector">
           <label for="semester">Semester</label>
-          <select name="semester" id="semester">
+          <select name="semester" id="semester" disabled onchange="filterSectionsAccordingToSemester()">
             <option value="">Select semester</option>
-            <option value="1">First</option>
-            <option value="2">Second</option>
+            <!-- this section will be filled with js  -->
+            <!-- <option value="1">First</option>
+            <option value="2">Second</option> -->
           </select>
         </div>
 
         <div class="selector">
           <label for="section">Section</label>
-          <select name="section" id="section">
+          <select name="section" id="section" disabled onchange="filterSubjectsAccordingToSection()">
             <option value="">Select section</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
+            <!-- this section will be filled with js  -->
+            <!-- <option value="A">A</option>
+            <option value="B">B</option> -->
           </select>
         </div>
 
         <div class="selector">
           <label for="subject">Subject</label>
-          <select name="subject" id="subject">
+          <select name="subject" id="subject" disabled>
             <option value="">Select subject</option>
             <option value="csc115">C Programming</option>
           </select>
