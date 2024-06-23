@@ -4,19 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>New Attendance | Mechi Multiple Campus</title>
-    <link rel="stylesheet" href="../res/css/theme.css" />
-    <link rel="stylesheet" href="../res/css/attendance.css" />
-    <link rel="stylesheet" href="../res/css/select.css" />
-    <link rel="icon" type="image/x-icon" href="../res/img/favicon.png" />
-    <script src="../res/js/new-attendance.js"></script>
+    <link rel="stylesheet" href="../../../res/css/theme.css" />
+    <link rel="stylesheet" href="../../../res/css/attendance.css" />
+    <link rel="stylesheet" href="../../../res/css/select.css" />
+    <link rel="icon" type="image/x-icon" href="../../../res/img/favicon.png" />
+    <script src="../../../res/js/new-attendance.js"></script>
   </head>
   <body>
     <header>
-      <button type="button" id="branding">
+      <button
+        type="button"
+        id="branding"
+        onclick="window.location.href = window.location.origin;"
+      >
         <img src="../../../res/img/TU-Logo.svg.png" alt="TU Logo" />
         <h2>Mechi Multiple Campus</h2>
       </button>
-      <button id="logout">Log out</button>
+      <button
+        id="logout"
+        onclick="window.location.href = window.location.origin + '/src/logout.php';"
+      >
+        Log out
+      </button>
     </header>
 
     <main>

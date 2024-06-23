@@ -1,0 +1,14 @@
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem 0;
+}
+.selector {
+  display: grid;
+  grid-template-columns: 10ch max-content;
+}
+.selector > select {
+  border: none;
+  border-bottom: 1px solid black;
+  width: 24ch;
+}

@@ -11,20 +11,33 @@
   </head>
   <body>
     <header>
-      <button type="button" id="branding">
+      <button
+        type="button"
+        id="branding"
+        onclick="window.location.href = window.location.origin;"
+      >
         <img src="../res/img/TU-Logo.svg.png" alt="TU Logo" />
         <h2>Mechi Multiple Campus</h2>
       </button>
-      <button type="button" id="logout">Log out</button>
+      <button
+        type="button"
+        id="logout"
+        onclick="window.location.href = window.location.origin + '/src/logout.php';"
+      >
+        Log out
+      </button>
     </header>
     <main>
-      <div id="title">Please select an option</div>
+      <div id="title">Teacher Dashboard</div>
       <details open>
         <summary>Attendance</summary>
         <article>
           <section>
             <img src="../res/img/notebook.png" alt="notebook" />
-            <a href="new-attendance.html" class="hgroup">
+            <a
+              href="./teacher/new-attendance/attendance-creator.php"
+              class="hgroup"
+            >
               <h3>New Attendance</h3>
               <h3 class="Nepali">नयाँ हाजिरी</h3>
             </a>

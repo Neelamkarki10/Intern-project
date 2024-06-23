@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               header('Location: .template/admin.html');
               exit();
             case 'teacher':
-              header('Location: .template/teacher.html');
+              header('Location: page/teacher.php');
               exit();
             case 'student':
               header('Location: .template/student.html');
