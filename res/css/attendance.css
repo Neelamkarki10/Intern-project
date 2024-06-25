@@ -39,6 +39,11 @@ input[type="text"] {
   border-bottom: 1px solid black;
   width: 15ch;
 }
+input[type="date"] {
+  border: none;
+  border-bottom: 1px solid black;
+  width: 26ch;
+}
 
 #submit {
   background-color: var(--primary-color);
