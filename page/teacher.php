@@ -49,7 +49,9 @@ authorize('teacher');
           </section>
           <section>
             <img src="../res/img/rejected.png" alt="rejected" />
-            <a href="#" class="hgroup">
+            <a 
+              href="./teacher/update-attendance/attendance-modify.php" 
+              class="hgroup">
               <h3>Attendance Correction</h3>
               <h3 class="Nepali">हाजिरी सच्चाउने</h3>
             </a>
