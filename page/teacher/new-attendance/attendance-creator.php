@@ -81,7 +81,7 @@ $selectOptions = getClasses();
           <label for="subject">Subject</label>
           <select name="subject" id="subject" disabled>
             <option value="">Select subject</option>
-            <option value="csc115">C Programming</option>
+            <!-- <option value="csc115">C Programming</option> -->
           </select>
         </div>
 
@@ -95,7 +95,7 @@ $selectOptions = getClasses();
       <form action="" method="POST" id="form" style="display: none">
         <div id="attendance-info">
           <div id="subject-info">
-            <label for="subject-title"><b>Subject:</b></label>
+            <label for="subject-title"><b>Subject Title:</b></label>
             <input
               type="text"
               name="subject-title"
@@ -124,7 +124,7 @@ $selectOptions = getClasses();
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <!-- <tr>
               <td>1</td>
               <td>Neelam Karki</td>
               <td>
@@ -149,7 +149,7 @@ $selectOptions = getClasses();
                   checked
                 />absent
               </td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
         <br />
