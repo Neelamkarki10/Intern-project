@@ -1,3 +1,25 @@
+window.onload = function () {
+  const nepali_date = NepaliFunctions.GetCurrentBsDate();
+  function addZero(num) {
+    return num < 10 ? "0" + num : num;
+  }
+  const year = nepali_date.year;
+  const month = addZero(nepali_date.month);
+  const day1 = addZero(nepali_date.day - 1);
+  const day2 = addZero(nepali_date.day);
+  const before = year + "-" + month + "-" + day1;
+  const after = year + "-" + month + "-" + day2;
+  var mainInput = document.getElementById("date-picker");
+  mainInput.value = after;
+  mainInput.nepaliDatePicker({
+    language: "english",
+    ndpYear: true,
+    ndpMonth: true,
+    ndpYearCount: 10,
+    disableAfter: after,
+  });
+};
+
 function loadStudents() {
   var program = document.getElementById("program").value;
   var semester = document.getElementById("semester").value;
@@ -27,7 +49,7 @@ function loadStudents() {
       document.getElementsByTagName("main")[0].style.paddingTop = "7rem";
 
       generateTable(xhr.responseText);
-      // generateHiddenForm();
+      generateHiddenForm();
 
       document.getElementById("form").style.display = "block";
       document.getElementById("form").style.padding = "0 3rem 0 3rem";
@@ -68,4 +90,29 @@ function generateTable(studentRecord) {
 
     tableBody.appendChild(row);
   });
+}
+
+function generateHiddenForm() {
+  var program = document.getElementById("program").value;
+  var semester = document.getElementById("semester").value;
+  var section = document.getElementById("section").value;
+  var subjectCode = document.getElementById("subject").value;
+
+  const form = document.getElementById("form");
+  const hiddenDiv = document.createElement("div");
+  hiddenDiv.style.display = "none";
+  hiddenDiv.innerHTML =
+    '<input type="hidden" name="program" value="' +
+    program +
+    '"/>' +
+    '<input type="hidden" name="semester" value="' +
+    semester +
+    '"/>' +
+    '<input type="hidden" name="section" value="' +
+    section +
+    '"/>' +
+    '<input type="hidden" name="subject_code" value="' +
+    subjectCode +
+    '"/>';
+  form.appendChild(hiddenDiv);
 }

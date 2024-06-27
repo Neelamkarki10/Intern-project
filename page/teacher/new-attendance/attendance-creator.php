@@ -4,6 +4,46 @@ authorize('teacher');
 
 require_once '../../../src/selectDataGenerator.php';
 $selectOptions = getClasses();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  require_once '../../../src/databaseManager.php';
+  $conn = establishConnectionToDB();
+
+  if(!$conn) {
+      die('Connection to database failed!');
+  }
+  else {
+      $program = $_POST['program'];
+      $semester = $_POST['semester'];
+      $section = $_POST['section'];
+      $subject_code = $_POST['subject_code'];
+      $names = $_POST['name'];
+      $created_on = $_POST['date-picker'];
+      
+      for ($i = 0; $i < count($names); $i++) {
+        $roll_number = array_keys($_POST['status'])[$i];
+        $status = $_POST['status'][$roll_number][0];
+
+        $pst = $conn->prepare("INSERT INTO `attendance`(`student_name`, `program`, `semester`, `section`, `roll_no`, `subject_code`, `status`, `created_on`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $pst->bind_param("ssisisss", $names[$i], $program, $semester, $section, $roll_number, $subject_code ,$status, $created_on);
+        $pst->execute();
+      }
+      if($pst -> affected_rows > 0) {
+        $pst->close();
+        header('Location: ../../done.html');
+        $conn->close();
+        exit();
+      } else {
+        echo "Some error has occured!";
+        $conn -> close();
+        exit();
+      }
+  }
+}
+
+if (empty($_SESSION['csrf_token'])) {
+  $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +56,8 @@ $selectOptions = getClasses();
     <link rel="stylesheet" href="../../../res/css/attendance.css" />
     <link rel="stylesheet" href="../../../res/css/select.css" />
     <link rel="icon" type="image/x-icon" href="../../../res/img/favicon.png" />
+    <!-- Nepali Datepicker CSS -->
+    <link href="../../../res/nepali-date-picker/nepali.datepicker.min.css" rel="stylesheet" type="text/css" />
     <script src="../../../res/js/select.js"></script>
     <script src="../../../res/js/new-attendance.js"></script>
     <script>
@@ -92,7 +134,10 @@ $selectOptions = getClasses();
         </div>
       </section>
 
-      <form action="" method="POST" id="form" style="display: none">
+      <form action="" method="POST" id="form" style="display:none">
+        <?php
+            echo '<input type="hidden" name="csrf_token" value="' . $_SESSION['csrf_token'] . '">';
+        ?>
         <div id="attendance-info">
           <div id="subject-info">
             <label for="subject-title"><b>Subject Title:</b></label>
@@ -156,5 +201,7 @@ $selectOptions = getClasses();
         <button type="submit" id="submit">&emsp;Save Attendance&emsp;</button>
       </form>
     </main>
+    <!-- Nepali Datepicker Script -->
+    <script src="../../../res/nepali-date-picker/nepali.datepicker.min.js" type="text/javascript"></script>
   </body>
 </html>
