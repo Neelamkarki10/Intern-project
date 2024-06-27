@@ -13,31 +13,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       die('Connection to database failed!');
   }
   else {
-      $program = $_POST['program'];
-      $semester = $_POST['semester'];
-      $section = $_POST['section'];
-      $subject_code = $_POST['subject_code'];
-      $names = $_POST['name'];
-      $created_on = $_POST['date-picker'];
-      
-      for ($i = 0; $i < count($names); $i++) {
-        $roll_number = array_keys($_POST['status'])[$i];
-        $status = $_POST['status'][$roll_number][0];
+    $program = $_POST['program'];
+    $semester = $_POST['semester'];
+    $section = $_POST['section'];
+    $subject_code = $_POST['subject_code'];
+    $names = $_POST['name'];
+    $created_on = $_POST['date-picker'];
+    
+    for ($i = 0; $i < count($names); $i++) {
+      $roll_number = array_keys($_POST['status'])[$i];
+      $status = $_POST['status'][$roll_number][0];
 
-        $pst = $conn->prepare("INSERT INTO `attendance`(`student_name`, `program`, `semester`, `section`, `roll_no`, `subject_code`, `status`, `created_on`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $pst->bind_param("ssisisss", $names[$i], $program, $semester, $section, $roll_number, $subject_code ,$status, $created_on);
-        $pst->execute();
-      }
-      if($pst -> affected_rows > 0) {
-        $pst->close();
-        header('Location: ../../done.html');
-        $conn->close();
-        exit();
-      } else {
-        echo "Some error has occured!";
-        $conn -> close();
-        exit();
-      }
+      $pst = $conn->prepare("INSERT INTO `attendance`(`student_name`, `program`, `semester`, `section`, `roll_no`, `subject_code`, `status`, `created_on`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+      $pst->bind_param("ssisisss", $names[$i], $program, $semester, $section, $roll_number, $subject_code ,$status, $created_on);
+      $pst->execute();
+    }
+    if($pst -> affected_rows > 0) {
+      $pst->close();
+      header('Location: ../../done.html');
+      $conn->close();
+      exit();
+    } else {
+      echo "Some error has occured!";
+      $conn -> close();
+      exit();
+    }
   }
 }
 
@@ -128,7 +128,7 @@ if (empty($_SESSION['csrf_token'])) {
         </div>
 
         <div class="selector">
-          <button type="button" onclick="loadStudents()" id="loader">
+          <button type="button" onclick="checkIfAlreadyDone()" id="loader">
             &emsp;Load&emsp;
           </button>
         </div>

@@ -20,6 +20,49 @@ window.onload = function () {
   });
 };
 
+function checkIfAlreadyDone() {
+  let xhr = new XMLHttpRequest();
+
+  xhr.open(
+    "GET",
+    window.location.origin +
+      "/api/checkAttendance.php" +
+      "?program=" +
+      document.getElementById("program").value +
+      "&semester=" +
+      document.getElementById("semester").value +
+      "&section=" +
+      document.getElementById("section").value +
+      "&subject_code=" +
+      document.getElementById("subject").value +
+      "&created_on=" +
+      document.getElementById("date-picker").value,
+    true
+  );
+  xhr.send();
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      // console.log(xhr.responseText);
+      if (xhr.responseText > 0) {
+        tryRedirect();
+      } else {
+        loadStudents();
+      }
+    }
+  };
+}
+
+function tryRedirect() {
+  if (window.confirm("Attendance already exists! Do you want to update?")) {
+    window.location.href =
+      window.location.origin +
+      "/page/teacher/update-attendance/attendance-modifier.php";
+  } else {
+    window.location.href = window.location.origin + "/page/teacher.php";
+  }
+}
+
 function loadStudents() {
   var program = document.getElementById("program").value;
   var semester = document.getElementById("semester").value;
