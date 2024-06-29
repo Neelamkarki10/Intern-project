@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="../../../res/img/favicon.png" />
+    <title>Attendance Report</title>
+    <style>
+      main {
+        padding: 0.4rem 0.5rem;
+        width: 7in;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+      header {
+        display: flex;
+        justify-content: center;
+      }
+      #collegeInfo {
+        display: flex;
+        gap: 1rem;
+      }
+      img {
+        height: 4rem;
+        width: auto;
+        filter: grayscale(100%);
+      }
+      h1 {
+        margin: 0;
+      }
+      #attendanceInfo {
+        margin: 0.3rem 0 0.1rem 0;
+        display: flex;
+        justify-content: space-between;
+      }
+      h4 {
+        display: inline;
+      }
+      span {
+        text-transform: uppercase;
+        font-size: 0.9rem;
+      }
+      .rightAlign {
+        text-align: right;
+      }
+      #dateInfo {
+        margin-bottom: 0.4rem;
+        display: flex;
+        justify-content: space-between;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      thead {
+        text-align: center;
+        background-color: lightgrey;
+      }
+      th {
+        padding: 0.2rem 1rem;
+        font-size: 1.1rem;
+      }
+      tr {
+        border-bottom: 1px solid lightgrey;
+      }
+      td {
+        padding: 0.1rem 1rem;
+        font-size: 1rem;
+        text-align: center;
+      }
+      th:nth-child(2),
+      td:nth-child(2) {
+        text-align: left;
+        padding: 0 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div id="collegeInfo">
+          <img src="../../../res/img/favicon.png" alt="TU Logo" />
+          <div>
+            <h1>Mechi Multiple Campus</h1>
+            <div>Bhadrapur, Jhapa</div>
+          </div>
+        </div>
+      </header>
+      <div id="attendanceInfo">
+        <div>
+          <div>
+            <h4>Program:</h4>
+            <span>B.Sc.CSIT</span>
+          </div>
+          <div>
+            <h4>Subject Code:</h4>
+            <span>CSC115</span>
+          </div>
+        </div>
+        <div>
+          <div class="rightAlign">
+            <h4>Semester:</h4>
+            <span>1</span>
+          </div>
+          <div class="rightAlign">
+            <h4>Section:</h4>
+            <span>A</span>
+          </div>
+        </div>
+      </div>
+      <div id="dateInfo">
+        <div>
+          <h4>Start Date:</h4>
+          <span>2081/01/01</span>
+        </div>
+        <div>
+          <h4>End Date:</h4>
+          <span>2081/01/30</span>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Days Present</th>
+            <th>Days Absent</th>
+            <th>Percentage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Bipul Karki</td>
+            <td>15</td>
+            <td>5</td>
+            <td>90%</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </body>
+  <!-- <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      window.print();
+    });
+  </script> -->
+</html>

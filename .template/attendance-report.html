@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendance Report | Mechi Multiple Campus</title>
+    <link rel="icon" type="image/x-icon" href="../../../res/img/favicon.png" />
+    <link rel="stylesheet" href="../../../res/css/theme.css" />
+    <link rel="stylesheet" href="../../../res/css/select.css" />
+    <link rel="stylesheet" href="../../../res/css/report.css" />
+    <!-- Nepali Datepicker CSS -->
+    <link
+      href="../../../res/nepali-date-picker/nepali.datepicker.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <header>
+      <button type="button" id="branding">
+        <img src="../../../res/img/TU-Logo.svg.png" alt="TU Logo" />
+        <h2>Mechi Multiple Campus</h2>
+      </button>
+      <button id="logout">Log out</button>
+    </header>
+
+    <main>
+      <!-- <form action="" method="POST"> -->
+      <section>
+        <div class="selector">
+          <label for="program">Program <span id="star">*</span></label>
+          <select name="program" id="program">
+            <option value="">Select program</option>
+            <option value="bsc.csit">CSIT</option>
+            <option value="bca">BCA</option>
+          </select>
+        </div>
+
+        <div class="selector">
+          <label for="semester">Semester <span id="star">*</span></label>
+          <select name="semester" id="semester">
+            <option value="">Select semester</option>
+            <option value="1">First</option>
+            <option value="2">Second</option>
+          </select>
+        </div>
+
+        <div class="selector">
+          <label for="section">Section <span id="star">*</span></label>
+          <select name="section" id="section">
+            <option value="">Select section</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+          </select>
+        </div>
+
+        <div class="selector">
+          <label for="subject">Subject <span id="star">*</span></label>
+          <select name="subject" id="subject">
+            <option value="">Select subject</option>
+            <option value="csc115">C Programming</option>
+          </select>
+        </div>
+
+        <div class="selector">
+          <label for="start-date">Start Date <span id="star">*</span></label>
+          <div>
+            <input
+              type="text"
+              name="start-date"
+              id="start-date"
+              value=""
+            />&#128197;
+          </div>
+        </div>
+        <div class="selector">
+          <label for="end-date">End Date <span id="star">*</span></label>
+          <div>
+            <input
+              type="text"
+              name="end-date"
+              id="end-date"
+              value=""
+            />&#128197;
+          </div>
+        </div>
+
+        <div class="selector">
+          <button type="button" onclick="loadReport()" id="loader">
+            &emsp;Load&emsp;
+          </button>
+        </div>
+      </section>
+      <!-- </form> -->
+    </main>
+
+    <!-- Nepali Datepicker Script -->
+    <script
+      src="../../../res/nepali-date-picker/nepali.datepicker.min.js"
+      type="text/javascript"
+    ></script>
+    <script>
+      window.onload = function () {
+        const nepali_date = NepaliFunctions.GetCurrentBsDate();
+        function addZero(num) {
+          return num < 10 ? "0" + num : num;
+        }
+        const year = nepali_date.year;
+        const monthStart = addZero(nepali_date.month - 1);
+        const monthEnd = addZero(nepali_date.month);
+        const day = addZero(nepali_date.day);
+        const start = year + "-" + monthStart + "-" + day;
+        const end = year + "-" + monthEnd + "-" + day;
+
+        var startDate = document.getElementById("start-date");
+        var endDate = document.getElementById("end-date");
+        startDate.value = start;
+        endDate.value = end;
+        startDate.nepaliDatePicker({
+          language: "english",
+          ndpYear: true,
+          ndpMonth: true,
+          ndpYearCount: 10,
+        });
+        endDate.nepaliDatePicker({
+          language: "english",
+          ndpYear: true,
+          ndpMonth: true,
+          ndpYearCount: 10,
+          disableAfter: end,
+        });
+      };
+    </script>
+
+    <script>
+      function loadReport() {
+        window.open("./report-table.html", "_self");
+      }
+    </script>
+  </body>
+</html>

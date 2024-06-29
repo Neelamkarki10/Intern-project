@@ -6,6 +6,7 @@ section {
 .selector {
   display: grid;
   grid-template-columns: 10ch max-content;
+  gap: 1rem;
 }
 .selector > select {
   border: none;

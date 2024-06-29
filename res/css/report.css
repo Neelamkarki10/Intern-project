@@ -1,0 +1,21 @@
+main {
+  padding: 7rem 3rem 1rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem 0;
+}
+.selector > div {
+  margin-top: -5px;
+}
+.selector > div input[type="text"] {
+  border: none;
+  border-bottom: 1px solid black;
+  width: 23ch;
+}
+
+#star {
+  float: right;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  color: red;
+}
