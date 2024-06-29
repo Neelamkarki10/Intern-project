@@ -45,11 +45,16 @@ input {
   font-size: 1rem;
 }
 button {
+  border: 0;
+  border-radius: var(--input-border_radius);
+  padding: var(--input-padding);
+  width: max-content;
   font-size: 1rem;
   font-weight: bold;
+  cursor: pointer;
+  color: var(--main-color);
   background-color: var(--accent-color);
 }
-button:focus,
 button:hover {
   background-color: var(--tertiary-color);
   transition: var(--transition-time);

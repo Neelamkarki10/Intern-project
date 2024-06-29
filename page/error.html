@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../res/css/theme.css" />
+    <link rel="icon" type="image/x-icon" href="../res/img/favicon.png" />
+    <title>Status | Mechi Multiple Campus</title>
+    <style>
+      main {
+        margin: 4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <button
+        type="button"
+        id="branding"
+        onclick="window.location.href = window.location.origin;"
+      >
+        <img src="../res/img/TU-Logo.svg.png" alt="TU Logo" />
+        <h2>Mechi Multiple Campus</h2>
+      </button>
+      <button
+        type="button"
+        id="logout"
+        onclick="window.location.href = window.location.origin + '/src/logout.php';"
+      >
+        Log out
+      </button>
+    </header>
+    <main>
+      <h1>Status 404 &#10060;</h1>
+      <p>404 Not Found!</p>
+      <button type="button" id="loader" onclick="goBack()">Go Back</button>
+    </main>
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+    </script>
+  </body>
+</html>
